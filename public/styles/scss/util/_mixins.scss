@@ -1,0 +1,19 @@
+@mixin center-auto{
+  margin: {
+    left: auto;
+    right: auto;
+  };
+}
+
+@mixin box($width, $height:$width){
+  width: $width;
+  height: $height;
+}
+
+@mixin cover-background($background-url){
+  background-image: $background-url;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

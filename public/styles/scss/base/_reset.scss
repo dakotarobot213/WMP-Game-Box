@@ -1,0 +1,145 @@
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+main,article,aside,details,figcaption,footer,header,figure,hgroup,menu,nav,section,summary{
+  display: block;
+}
+
+html{
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+
+img,object,embed{
+  max-width: 100%;
+  height: auto;
+}
+
+ul{
+  list-style: none;
+}
+
+blockquote,p{
+  quotes: none;
+  &::after,::before{
+    content:'';
+    content: none;
+  }
+}
+
+del{
+  text-decoration: line-through;
+}
+
+abbr[title],dfn[title]{
+  border-bottom: 1px dotted #222;
+  cursor: help;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th{
+  font-weight: bold;
+  vertical-align: bottom;
+}
+td{
+  font-weight: normal;
+  vertical-align: top;
+}
+hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select{
+  vertical-align: middle;
+}  
+pre{
+  white-space:pre; //CSS 2
+  white-space: pre-wrap;//Css 2.1
+  white-space: pre-line;//CSS 3
+  word-wrap: break-word;
+}
+
+input[type="radio"]{
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"]{
+  vertical-align: bottom;
+}
+
+.ie7 input[type="check-box"]{
+  vertical-align: baseline;
+}
+
+.ie6 input{
+  vertical-align: text-bottom;
+}
+
+select,input,textarea{
+  font-size: 99%;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong{
+  font-weight: bold;
+}
+
+sub,sup{
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup{
+  top: -.5em;
+}
+
+sub{
+  bottom: -.25em;
+}
+
+.clickable,
+  label,
+  input[type="button"],
+  input[type="submit"],
+  input[type="file"],
+  button{
+  cursor:pointer;
+}
+
+button, input[type="button"]{
+  width: auto;
+  overflow: hidden;
+}
+
+.ie7 img{
+  -ms-interpolation-mode: bicubic; 
+}
+
+.clearfix::after{
+  content: " ";
+  display: block;
+  clear: both;
+}
