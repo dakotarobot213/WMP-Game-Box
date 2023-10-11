@@ -1,1 +1,1 @@
-#playing-field{border:solid #000 2px;width:calc(100% - 4rem);margin:2rem;display:grid}/*# sourceMappingURL=index.min.css.map */
+nav{text-align:center;padding:.5rem}#playing-field{border:solid #000 2px;width:calc(100% - 4rem);margin:2rem;display:grid}.playing-card{cursor:pointer}.limbo-card{filter:grayscale(50%)}.claimed-card{filter:grayscale(100%)}/*# sourceMappingURL=index.min.css.map */
