@@ -7,11 +7,18 @@
     "dev": "nodemon app.js"
   },
   "author": "Dakota Adams (https://github.com/dakotarobot213)",
-  "contributors": [{"name": "Mercutio Geant", "url": "https://github.com/MercutioG"}],
+  "contributors": [
+    {
+      "name": "Mercutio Geant",
+      "url": "https://github.com/MercutioG"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongoose": "^7.6.1",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "passport": "^0.6.0"

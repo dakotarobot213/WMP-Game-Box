@@ -1,6 +1,8 @@
 const express = require("express");
-const app = express();
+require("dotenv").config();
+const connectDB = require("./db/connect.js");
 const morgan = require("morgan");
+const app = express();
 const PORT = 5000;
 
 // Static assets
@@ -13,6 +15,7 @@ app.use(express.json());
 
 const initServer = async () => {
 	try {
+		await connectDB(process.env.MONGO_URI);
 		app.listen(PORT, console.log("Server listening on port 5000"));
 	} catch (error) {
 		console.log(error);
