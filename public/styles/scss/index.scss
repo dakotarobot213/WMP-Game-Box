@@ -10,7 +10,19 @@ nav{
   display: grid;
 }
 .playing-card{
+  position: relative;
   cursor: pointer;
+  transform: rotateY(0deg);
+  transition: 0.2s;
+}
+
+.front-card, .back-card{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}
+.back-card{
+  transform: rotateY(180deg)
 }
 
 .limbo-card{
@@ -18,4 +30,9 @@ nav{
 }
 .claimed-card{
   filter: grayscale(100%);
+}
+
+.flipped{
+  transform : rotateY(180deg);
+  transition: 0.2s;
 }

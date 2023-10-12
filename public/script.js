@@ -13,7 +13,12 @@ var card1id;
 var card2;
 var card2id;
 
-setInterval(() => {if(timeBonus > 0){timeBonus--}}, 1000)
+setInterval(() => {
+  if(timeBonus > 0){
+    timeBonus--
+    document.getElementById('time-bonus-display').innerHTML = timeBonus;
+  }
+}, 1000)
 
 $(window).on('load', function(){
   // Shuffle Deck
@@ -24,21 +29,21 @@ $(window).on('load', function(){
   // }
 
   $('.playing-card').on('click', function(){
-    $(this).removeClass('playing-card')
     if(selection == 0) {
       // Card Selection 1
+      $(this).removeClass('playing-card')
       card1 = this.className
       card1id= this.id
       console.log('card 1 is ' + card1)
       selection++
-      $(this).addClass('limbo-card')
+      $(this).addClass('limbo-card').addClass('flipped')
       console.log(selection);
     } else if (selection == 1 && card1id != this.id) {
       // Card Selection 2
       card2 = this.className
-      selection--
+      selection++
       console.log(selection)
-      $(this).addClass('limbo-card')
+      $(this).addClass('limbo-card').addClass('flipped')
       checkCards()
     }
 
@@ -50,7 +55,7 @@ $(window).on('load', function(){
         timeBonus = 50
         $('.limbo-card').addClass('claimed-card').removeClass('limbo-card')
       } else {
-        $('.limbo-card').addClass('playing-card').removeClass('limbo-card')
+        $('.limbo-card').addClass('playing-card').removeClass('limbo-card').removeClass('flipped')
       }
       
       if(playerTurn >= playerLimit) {playerTurn = 1} else {playerTurn++}
