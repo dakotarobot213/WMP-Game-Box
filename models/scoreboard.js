@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const ScoreSchema = new mongoose.Schema(
 	{
 		name: {
@@ -8,13 +9,9 @@ const ScoreSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		password: {
-			type: String,
+		score: {
+			type: Number,
 			required: true,
-		},
-		date: {
-			type: Date,
-			default: Date.now,
 		},
 	},
 	{ collection: "Scoreboard" }
