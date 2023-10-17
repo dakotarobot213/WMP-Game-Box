@@ -1,7 +1,38 @@
+nav{
+  text-align: center;
+  padding: 0.5rem;
+}
 #playing-field{
   border: solid black 2px;
   width: calc(100% - 4rem);
   margin: 2rem;
 
   display: grid;
+}
+.playing-card{
+  position: relative;
+  cursor: pointer;
+  transform: rotateY(0deg);
+  transition: 0.2s;
+}
+
+.front-card, .back-card{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}
+.back-card{
+  transform: rotateY(180deg)
+}
+
+.limbo-card{
+  filter: grayscale(50%);
+}
+.claimed-card{
+  filter: grayscale(100%);
+}
+
+.flipped{
+  transform : rotateY(180deg);
+  transition: 0.2s;
 }
