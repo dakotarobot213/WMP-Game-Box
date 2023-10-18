@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Hello World!</title>
-	</head>
-	<body>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-			integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-			crossorigin="anonymous"
-		></script>
-		<script>
-			async function makeUser() {
-				await axios.post("/auth/register", { name: "Daniel", email: "dadams572@west-mec.org", password: "password", password2: "password" });
-			}
-			makeUser();
-			console.log("Hello world!");
-			alert("Hello world!");
-		</script>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <link rel="stylesheet" href="./styles/css/master.css">
+  <link rel="stylesheet" href="./styles/css/index.css">
+</head>
+<body>
+  <form id="register-form" action="/auth/login">
+		<h1><strong>Register An Account</strong></h1>
+    <label for="username">Username: </label><input type="text" name="username" class="credential-field"/><br>
+    <label for="email">Email: </label><input type="email" name="email" class="credential-field"/><br>
+    <label for="password">Password: </label><input type="text" name="password" class="credential-field"/><br>
+    <label for="password2">Confirm Password: </label><input type="text" name="password2" class="credential-field"/><br>
+		<button type="submit" class="submit-btn">Submit</button>
+  </form>
+</body>
 </html>
