@@ -7,6 +7,7 @@ const morgan = require("morgan");
 
 // File fetching
 const users = require("./routes/user");
+const scoreboard = require("./routes/scoreboard");
 
 // const scoreboard = require("./routes/scoreboard");
 require("./config/passport")(passport);
@@ -38,8 +39,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // Routes
-app.use("/auth", users);
-// app.use("/score", scoreboard);
+app.use("/auth", users); // User Authentication
+app.use("/scoreboard", scoreboard); // Scoreboard
 
 const initServer = async () => {
 	try {
