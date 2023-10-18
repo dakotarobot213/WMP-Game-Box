@@ -70,11 +70,14 @@ $(window).on('load', function(){
         playerScores[playerTurn-1] += 50 + timeBonus
         document.getElementById('player-score').innerHTML = ('Player Scores: ' + playerScores.join(', '))
         $('.limbo-card').addClass('claimed-card').removeClass('limbo-card').off()
+        timeBonus = 50
       } else {
         $('.limbo-card').addClass('playing-card').removeClass('limbo-card')
+        if(playerLimit > 1) {
+          timeBonus = 50
+        }
       }
       // Reset turn and pass to the next player
-      timeBonus = 50
       selection = 0
       if(playerTurn >= playerLimit) {playerTurn = 1} else {playerTurn++}
       document.getElementById('player-turn').innerHTML = 'Player ' + playerTurn + "'s Turn"
@@ -82,6 +85,7 @@ $(window).on('load', function(){
         console.log('Someone won')
         clearInterval(timerScore)
       }
+      
     }
   })
 })
