@@ -9,8 +9,16 @@
 		<title>Hello World!</title>
 	</head>
 	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+			integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+			crossorigin="anonymous"
+		></script>
 		<script>
-			// await axios.get()
+			async function makeUser() {
+				await axios.post("/auth/register", { name: "Daniel", email: "dadams572@west-mec.org", password: "password", password2: "password" });
+			}
+			makeUser();
 			console.log("Hello world!");
 			alert("Hello world!");
 		</script>

@@ -37,7 +37,6 @@ app.use(
 // Passport/user middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
 // Routes
 app.use("/auth", users);
 // app.use("/score", scoreboard);

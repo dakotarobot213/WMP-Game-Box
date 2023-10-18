@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
 	let errors = [];
 	// console.log(`Name ${name} email: ${email} pass: ${password}`)
 	// Checks if all fields are filled
-	if (name || !email || !password || !password2) {
+	if (!name || !email || !password || !password2) {
 		errors.push({ msg: "Please fill in all fields" });
 	}
 	//checks if passwords match
@@ -42,17 +42,16 @@ router.post("/register", (req, res) => {
 		});
 	} else {
 		// validation passed
-		User.findOne({ email: email }).then((err, user) => {
-			// console.log(user)
+		User.findOne({ email: email }).then((user, err) => {
 			if (user) {
 				errors.push({ msg: "email already registered" });
-				res.render("pages/register", {
-					errors: errors,
-					name: name,
-					email: email,
-					password: password,
-					password2: password2,
-				});
+				// res.render("pages/register", {
+				// 	errors: errors,
+				// 	name: name,
+				// 	email: email,
+				// 	password: password,
+				// 	password2: password2,
+				// });
 			} else {
 				const newUser = new User({
 					name: name,
@@ -70,10 +69,10 @@ router.post("/register", (req, res) => {
 							.save() // This is a mongoose function to save to our mongodb
 							.then((value) => {
 								// console.log(value)
-								req.flash("success_msg", "You have now registered!");
-								res.redirect("/users/login");
+								// req.flash("success_msg", "You have now registered!");
+								// res.redirect("/users/login");
 							})
-							.catch((value) => console.log("value: yaaaay"));
+							.catch((value) => console.log(`Something went wrong after saving: ${value}`));
 					});
 				});
 			}
