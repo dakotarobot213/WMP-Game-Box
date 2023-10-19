@@ -9,7 +9,6 @@ const expressEJSLayout = require("express-ejs-layouts");
 // File fetching
 const index = require("./routes/index");
 const users = require("./routes/user");
-const scoreboard = require("./routes/scoreboard");
 
 // const scoreboard = require("./routes/scoreboard");
 require("./config/passport")(passport);
@@ -47,7 +46,6 @@ app.use(passport.session());
 // Routes
 app.use("/", index); // User Authentication
 app.use("/auth", users); // User Authentication
-app.use("/scoreboard", scoreboard); // Scoreboard
 
 const initServer = async () => {
 	try {

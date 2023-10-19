@@ -12,10 +12,13 @@ router.get("/login", (req, res) => {
 router.get("/register", (req, res) => {
 	res.render("pages/register");
 });
-// Register page
-// router.get("/register", (req, res) => {
-// 	res.render("pages/register");
-// });
+
+router.put("/score", (req, res) => {
+	const { score } = req.body;
+	const user = User.findOne({ email: req.user.email });
+	// user.setUpdate({ currScore: score });
+	console.log(user);
+});
 
 // Register handle
 router.post("/register", (req, res) => {
@@ -25,6 +28,9 @@ router.post("/register", (req, res) => {
 	// Checks if all fields are filled
 	if (!name || !email || !password || !password2) {
 		errors.push({ msg: "Please fill in all fields" });
+	}
+	if (name <= 15) {
+		errors.push({ msg: "Name cannot be longer then 15 characters" });
 	}
 	//checks if passwords match
 	if (password !== password2) {
@@ -81,6 +87,7 @@ router.post("/register", (req, res) => {
 		});
 	}
 });
+
 // Login
 router.post("/login", (req, res, next) => {
 	passport.authenticate("local", {

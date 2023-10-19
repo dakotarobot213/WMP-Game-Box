@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 
 router.get("/game", ensureAuthenticated, (req, res) => {
 	res.render("pages/game", {
-		name: req.name,
+		user: req.user,
 	});
 });
 module.exports = router;
