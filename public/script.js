@@ -66,7 +66,7 @@ $(window).on('load', function(){
       $(this).addClass('limbo-card')
       
       clearInterval(timerScore)
-      setTimeout(checkCards, 100)
+      setTimeout(checkCards, 1250)
     }
 
     function checkCards(){
