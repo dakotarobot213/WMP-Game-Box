@@ -1,7 +1,7 @@
 var selection = 0;
 var playerTurn = 1;
 var playerLimit = 3;
-var timeBonus = 50;
+var timeBonus = 500;
 
 if(sessionStorage.getItem('setPlayerTurns') > 0){
   playerLimit = sessionStorage.getItem('setPlayerTurns')
@@ -27,19 +27,19 @@ function setPlayerCount(playerCount){
 var timerScore = setInterval(() => {
   if(timeBonus > 0){
     if(!pause){
-      timeBonus--
+      timeBonus --
       document.getElementById('time-bonus-display').innerHTML = timeBonus;
     }
   }
-}, 1000)
+}, 100)
 
 $(window).on('load', function(){
   // Shuffle Deck
-  // var deck = $("#deck");
-  // var cards = deck.children();
-  // while (cards.length) {
-  //   deck.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
-  // }
+  var deck = $("#deck");
+  var cards = deck.children();
+  while (cards.length) {
+    deck.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+  }
 
   $('#options-menu').on('click', function() {
     $('#options').toggleClass('options-on')
@@ -61,20 +61,20 @@ $(window).on('load', function(){
       selection++
       $(this).addClass('limbo-card')
       
-      setTimeout(checkCards, 100)
+      setTimeout(checkCards, 1250)
     }
 
     function checkCards(){
       // Check if Cards Match
       if(card1 == card2){
-        playerScores[playerTurn-1] += 50 + timeBonus
+        playerScores[playerTurn-1] += 500 + timeBonus
         document.getElementById('player-score').innerHTML = ('Player Scores: ' + playerScores.join(', '))
         $('.limbo-card').addClass('claimed-card').removeClass('limbo-card').off()
-        timeBonus = 50
+        timeBonus = 500
       } else {
         $('.limbo-card').addClass('playing-card').removeClass('limbo-card')
         if(playerLimit > 1) {
-          timeBonus = 50
+          timeBonus = 500
         }
       }
       // Reset turn and pass to the next player
