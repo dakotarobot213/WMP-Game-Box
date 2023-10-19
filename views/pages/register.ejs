@@ -6,24 +6,30 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Login</title>
+		<title>Register</title>
 
 		<link
 			rel="stylesheet"
-			href="./styles/css/master.css"
+			href="../styles/css/master.css"
 		/>
 		<link
 			rel="stylesheet"
-			href="./styles/css/index.css"
+			href="../styles/css/index.css"
 		/>
 	</head>
 	<body>
 		<form
 			id="register-form"
 			method="post"
-			action="/auth/login"
+			action="/auth/register"
 		>
-			<h1><strong>Login</strong></h1>
+			<h1><strong>Register An Account</strong></h1>
+			<label for="username">Username: </label
+			><input
+				type="text"
+				name="name"
+				class="credential-field"
+			/><br />
 			<label for="email">Email: </label
 			><input
 				type="email"
@@ -36,11 +42,17 @@
 				name="password"
 				class="credential-field"
 			/><br />
+			<label for="password2">Confirm Password: </label
+			><input
+				type="password"
+				name="password2"
+				class="credential-field"
+			/><br />
 			<button
 				type="submit"
 				class="submit-btn"
 			>
-				Login
+				Submit
 			</button>
 		</form>
 	</body>

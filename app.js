@@ -4,8 +4,10 @@ const session = require("express-session");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const expressEJSLayout = require("express-ejs-layouts");
 
 // File fetching
+const index = require("./routes/index");
 const users = require("./routes/user");
 const scoreboard = require("./routes/scoreboard");
 
@@ -18,6 +20,10 @@ const app = express();
 
 // Static assets
 app.use(express.static("./public"));
+
+// Sets the EJS as the Express ap view engine. By default, Express will look inside of a views folder when resolving the template files, which is why we had to create a views folder
+app.set("view engine", "ejs");
+app.use(expressEJSLayout);
 
 // Parse Form Data
 app.use(express.urlencoded({ extended: false }));
@@ -39,6 +45,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 // Routes
+app.use("/", index); // User Authentication
 app.use("/auth", users); // User Authentication
 app.use("/scoreboard", scoreboard); // Scoreboard
 

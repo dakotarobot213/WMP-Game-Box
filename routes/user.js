@@ -7,9 +7,11 @@ const User = require("../models/user");
 
 // Login handler
 router.get("/login", (req, res) => {
-	// res.send(require());
+	res.render("pages/login");
 });
-
+router.get("/register", (req, res) => {
+	res.render("pages/register");
+});
 // Register page
 // router.get("/register", (req, res) => {
 // 	res.render("pages/register");
@@ -70,7 +72,7 @@ router.post("/register", (req, res) => {
 							.then((value) => {
 								// console.log(value)
 								// req.flash("success_msg", "You have now registered!");
-								res.redirect("../../index.html");
+								res.redirect("/auth/login");
 							})
 							.catch((value) => console.log(`Something went wrong after saving: ${value}`));
 					});
@@ -82,8 +84,8 @@ router.post("/register", (req, res) => {
 // Login
 router.post("/login", (req, res, next) => {
 	passport.authenticate("local", {
-		successRedirect: "../../game.html",
-		failureRedirect: "../../login",
+		successRedirect: "/game",
+		failureRedirect: "./login",
 		// failureFlash: true,
 	})(req, res, next);
 	// req, res, next is returned down here
