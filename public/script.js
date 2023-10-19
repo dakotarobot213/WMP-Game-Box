@@ -3,6 +3,8 @@ var playerTurn = 1;
 var playerLimit = 3;
 var timeBonus = 500;
 
+var winCondition = false;
+
 if(sessionStorage.getItem('setPlayerTurns') > 0){
   playerLimit = sessionStorage.getItem('setPlayerTurns')
 }
@@ -42,8 +44,10 @@ $(window).on('load', function(){
   }
 
   $('#options-menu').on('click', function() {
-    $('#options').toggleClass('options-on')
-    pause = !pause;
+    if(!winCondition){
+      $('#options').toggleClass('options-on')
+      pause = !pause;
+    }
   })
   // When a player selects a non-selected card
   $('.playing-card').on('click', function(){
@@ -61,13 +65,14 @@ $(window).on('load', function(){
       selection++
       $(this).addClass('limbo-card')
       
-      setTimeout(checkCards, 1250)
+      clearInterval(timerScore)
+      setTimeout(checkCards, 100)
     }
 
     function checkCards(){
       // Check if Cards Match
       if(card1 == card2){
-        playerScores[playerTurn-1] += 500 + timeBonus
+        playerScores[playerTurn-1] += 300 + timeBonus
         document.getElementById('player-score').innerHTML = ('Player Scores: ' + playerScores.join(', '))
         $('.limbo-card').addClass('claimed-card').removeClass('limbo-card').off()
         timeBonus = 500
@@ -77,13 +82,30 @@ $(window).on('load', function(){
           timeBonus = 500
         }
       }
+      timerScore = setInterval(() => {
+        if(timeBonus > 0){
+          if(!pause){
+            timeBonus --
+            document.getElementById('time-bonus-display').innerHTML = timeBonus;
+          }
+        }
+      }, 100)
       // Reset turn and pass to the next player
       selection = 0
       if(playerTurn >= playerLimit) {playerTurn = 1} else {playerTurn++}
       document.getElementById('player-turn').innerHTML = 'Player ' + playerTurn + "'s Turn"
+
+      // On game end (where score will be posted/updated)
       if(document.getElementsByClassName('playing-card').length < 1){
-        console.log('Someone won')
+        winCondition = true;
         clearInterval(timerScore)
+
+        // Find winner and display it
+        let winnerScore = Math.max(...playerScores)
+        let winnerID = playerScores.indexOf(winnerScore) + 1
+        document.getElementById('winner-text').innerHTML = `Player ${winnerID} won with a score of ${winnerScore}`
+
+        $('#win-screen').addClass('win-screen-on')
       }
       
     }
