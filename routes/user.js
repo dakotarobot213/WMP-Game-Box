@@ -70,7 +70,7 @@ router.post("/register", (req, res) => {
 							.then((value) => {
 								// console.log(value)
 								// req.flash("success_msg", "You have now registered!");
-								// res.redirect("/users/login");
+								res.redirect("../../index.html");
 							})
 							.catch((value) => console.log(`Something went wrong after saving: ${value}`));
 					});
@@ -82,8 +82,8 @@ router.post("/register", (req, res) => {
 // Login
 router.post("/login", (req, res, next) => {
 	passport.authenticate("local", {
-		successRedirect: "/dashboard",
-		failureRedirect: "/users/login",
+		successRedirect: "../../game.html",
+		failureRedirect: "../../login",
 		// failureFlash: true,
 	})(req, res, next);
 	// req, res, next is returned down here
@@ -96,7 +96,7 @@ router.get("/logout", (req, res) => {
 			return next(err);
 		}
 	});
-	res.redirect("/");
+	res.redirect("../../");
 });
 
 module.exports = router;
