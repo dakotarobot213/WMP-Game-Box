@@ -21,10 +21,6 @@ const UserSchema = new mongoose.Schema(
 			type: Number,
 			default: 0,
 		},
-		currScore: {
-			type: Number,
-			default: 0,
-		},
 	},
 	{ collection: "Users" }
 );

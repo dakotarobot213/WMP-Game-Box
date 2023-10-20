@@ -5,19 +5,46 @@ const passport = require("passport");
 const User = require("../models/user");
 // const fs = require("fs")
 
-// Login handler
+// Login Render
 router.get("/login", (req, res) => {
 	res.render("pages/login");
 });
+
+// Register Render
 router.get("/register", (req, res) => {
 	res.render("pages/register");
 });
 
+// Score updating
 router.put("/score", (req, res) => {
 	const { score } = req.body;
-	const user = User.findOne({ email: req.user.email });
-	// user.setUpdate({ currScore: score });
-	console.log(user);
+	const { email, highScore } = req.user;
+	if (score > highScore) {
+		User.findOneAndUpdate({ email: email }, { $set: { highScore: score } }).then((doc, err) => {
+			if (err) {
+				res.status(500);
+			} else {
+				res.status(200);
+			}
+		});
+	}
+});
+
+// Score Grabbing
+router.get("/score", (req, res) => {
+	User.find({}).then((users, error) => {
+		let scoreboard = users;
+		scoreboard.sort((a, b) => {
+			return b.highScore - a.highScore;
+		});
+		res.json(
+			scoreboard
+				.map((user) => {
+					return { name: user.name, score: user.highScore };
+				})
+				.slice(0, 9)
+		);
+	});
 });
 
 // Register handle
@@ -78,7 +105,7 @@ router.post("/register", (req, res) => {
 							.then((value) => {
 								// console.log(value)
 								// req.flash("success_msg", "You have now registered!");
-								res.redirect("/auth/login");
+								res.redirect("/user/login");
 							})
 							.catch((value) => console.log(`Something went wrong after saving: ${value}`));
 					});

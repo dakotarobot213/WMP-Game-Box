@@ -45,7 +45,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 app.use("/", index); // User Authentication
-app.use("/auth", users); // User Authentication
+app.use("/user", users); // User Methods and Authentication
 
 const initServer = async () => {
 	try {
