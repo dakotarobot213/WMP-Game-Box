@@ -119,6 +119,7 @@ $(window).on("load", function () {
 
 				// Find winner and display it
 				let winnerScore = Math.max(...playerScores);
+				axios.put("../user/score", { score: winnerScore });
 				let winnerID = playerScores.indexOf(winnerScore) + 1;
 				document.getElementById("winner-text").innerHTML = `Player ${winnerID} won with a score of ${winnerScore}`;
 
