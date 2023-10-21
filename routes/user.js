@@ -15,7 +15,7 @@ router.get("/register", (req, res) => {
 	res.render("pages/register");
 });
 
-// Score updating
+// Update score for the user
 router.put("/score", (req, res) => {
 	const { score } = req.body;
 	const { email, highScore } = req.user;
@@ -30,8 +30,8 @@ router.put("/score", (req, res) => {
 	}
 });
 
-// Score Grabbing
-router.get("/score", (req, res) => {
+// Grab the top ten scores from user pool
+router.get("/scoreboard", (req, res) => {
 	User.find({}).then((users, error) => {
 		let scoreboard = users;
 		scoreboard.sort((a, b) => {
@@ -132,7 +132,7 @@ router.get("/logout", (req, res) => {
 			return next(err);
 		}
 	});
-	res.redirect("../../");
+	res.redirect("/");
 });
 
 module.exports = router;
