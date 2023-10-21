@@ -30,9 +30,9 @@ async function updateScoreboard() {
 	const scoreboard = await axios.get("../user/scoreboard").then((res, err) => {
 		return res.data;
 	});
-	$(`#leaderboard`).empty();
+	$(`.leaderboard`).empty();
 	for (let player of scoreboard) {
-		$(`#leaderboard`).append(`<li>${player.name} : ${player.score}</li>`);
+		$(`.leaderboard`).append(`<li>${player.name} : ${player.score}</li>`);
 	}
 }
 

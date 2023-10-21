@@ -34,7 +34,12 @@
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 		<!-- Axios -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js" integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"
+			integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 	</head>
 	<body>
 		<nav>
@@ -93,45 +98,41 @@
 				</button>
 			</h3>
 			<h2>Leaderboard:</h2>
-			<ul id="leaderboard">
-			</ul>
+			<ul class="leaderboard"></ul>
 		</section>
 		<section id="win-screen">
 			<h1>Congratulations!</h1>
 			<h3 id="winner-text">Player 1 has won with a score of 99999</h3>
-			<h3>
-				Play again?
-				<button
-					onclick="setPlayerCount(1)"
-					class="player-count-btn"
-				>
-					1</button
-				><button
-					onclick="setPlayerCount(2)"
-					class="player-count-btn"
-				>
-					2</button
-				><button
-					onclick="setPlayerCount(3)"
-					class="player-count-btn"
-				>
-					3</button
-				><button
-					onclick="setPlayerCount(4)"
-					class="player-count-btn"
-				>
-					4</button
-				><button
-					onclick="setPlayerCount(5)"
-					class="player-count-btn"
-				>
-					5
-				</button><br>
-				<button
-					class="new-game-btn"
-				>
-					Log Out
-				</button>
+			<h3>Play again?</h3>
+			<button
+				onclick="setPlayerCount(1)"
+				class="player-count-btn"
+			>
+				1</button
+			><button
+				onclick="setPlayerCount(2)"
+				class="player-count-btn"
+			>
+				2</button
+			><button
+				onclick="setPlayerCount(3)"
+				class="player-count-btn"
+			>
+				3</button
+			><button
+				onclick="setPlayerCount(4)"
+				class="player-count-btn"
+			>
+				4</button
+			><button
+				onclick="setPlayerCount(5)"
+				class="player-count-btn"
+			>
+				5</button
+			><br />
+			<button class="new-game-btn">Log Out</button>
+			<h2>Leaderboard:</h2>
+			<ul class="leaderboard"></ul>
 		</section>
 		<section id="playing-field">
 			<div
