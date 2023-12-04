@@ -7,7 +7,7 @@
 
 ## Roadmap
 
- - [ ] Client side
+ - [x] Client side
    - [x] Login page
    - [x] Memory Game
      - [x] Point System
