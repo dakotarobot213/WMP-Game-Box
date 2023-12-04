@@ -8,18 +8,18 @@
 ## Roadmap
 
  - [ ] Client side
-   - [ ] Login page
-   - [ ] Memory Game
-     - [ ] Point System
-     - [ ] New Game and Quit Game buttons
-     - [ ] On device, local multiplayer
- - [ ] Server side
-   - [ ] Users 
-     - [ ] Auth system
-   - [ ] Scoreboard /w score history
-     - [ ] High Score
+   - [x] Login page
+   - [x] Memory Game
+     - [x] Point System
+     - [x] New Game and Quit Game buttons
+     - [x] On device, local multiplayer
+ - [x] Server side
+   - [x] Users 
+     - [x] Auth system
+   - [x] Scoreboard /w score history
+     - [x] High Score
      - [ ] Opt-in score email
-   - [ ] Game history
+   - [x] Game history
 
 ## Acknowledgements
 
